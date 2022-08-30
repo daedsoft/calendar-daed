@@ -1,0 +1,89 @@
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.container{
+    width: 390px;
+    margin: 0 auto;
+}
+
+
+
+.calendar{
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    padding: 10px;    
+}
+
+.calendar__header{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.big-year{
+    margin: 0;
+}
+
+.triangle-left, .triangle-right{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    border: 1px solid #e5e5e5;
+    border-radius: 3px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.months{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 10px 0;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.months *{
+    font-size: 11px;
+    margin: 0 3px;
+    padding: 3px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.months *:hover{
+    background-color: #e5e5e5;
+}
+
+.calendar-table{
+    width: 100%;
+}
+
+.dates{
+    text-align: center;
+    border-radius: 4px;
+    padding: 5px;    
+    cursor: pointer;
+    user-select: none;
+}
+
+.dates:hover{
+    background-color: #e5e5e5;
+}
+
+.selected-day{
+    text-align: center !important;
+    background-color: #333333;
+    color: #fff;
+    border-radius: 4px;
+}
+
+.noavailable-day{
+    pointer-events: none;   
+    color: #ccc;
+}
