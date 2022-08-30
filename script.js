@@ -32,6 +32,7 @@ function renderMonths(){
                 currentMonth = e.target.id-1                
                 currentYear = currentYear
                 renderCalendar(currentMonth, currentYear)
+                onlyValidDates(iDate, eDate)
             }
         })
     })
@@ -169,8 +170,6 @@ function onlyValidDates(start, end){
         }
         availableDates.push(whileYear + whileMonth + whileDay)
     }    
-    
-    console.log(availableDates)
 
     let dateOk
     let dateId
