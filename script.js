@@ -86,6 +86,7 @@ function renderCalendar(month, year) {
         newpp.hidden = true
         calendarTable.append(newpp)
     });
+    
 }
 
 function nextYear() {
@@ -114,7 +115,7 @@ function previousYear() {
 
 // *********
 
-function onlyValidDates(start, end){
+function onlyValidDates(start, end, week){
     let startDate = new Date(start)
     startDate.setMinutes(startDate.getMinutes() + startDate.getTimezoneOffset())    
     let sYear = startDate.getFullYear().toString()
@@ -181,13 +182,50 @@ function onlyValidDates(start, end){
             allItemsDate[i].classList.add('noavailable-day')
         }
     }
+
+    for (let x = 0; x < allItemsDate.length; x++){        
+        if (!allItemsDate[x].classList.contains('noavailable-day')){        
+            dateInner = allItemsDate[x].getAttribute('id')
+            yearIn = +dateInner.substring(0, 4)
+            monthIn = +dateInner.substring(4,6)
+            dayIn = +dateInner.substring(6, 8)
+
+            fullDateInner = new Date(yearIn, monthIn - 1, dayIn)
+            dayName = fullDateInner.getDay()
+            
+            if(week == 'Lunes a Viernes'){
+                if(dayName == 0 || dayName == 6){
+                    allItemsDate[x].classList.add('noavailable-day')
+                }
+            }
+            if(week == 'Lunes a Sábado'){
+                if(dayName == 0){
+                    allItemsDate[x].classList.add('noavailable-day')
+                }
+            }
+        }
+    }    
+}
+
+const highlightMonth = () => {
+    const monthLabels = document.querySelectorAll('.each-month')
+    for (let i = 0; i < monthLabels.length; i++){
+        let currentMonth = new Date().getMonth()
+        console.log(currentMonth)
+        monthLabels[currentMonth].classList.add('selected')
+    }
 }
 
 renderMonths()
 renderCalendar(currentMonth, currentYear);
 nextYear()
 previousYear()
+highlightMonth()
 
-let iDate = '2022-08-15'
-let eDate = '2022-08-20'
-onlyValidDates(iDate, eDate)
+
+let iDate = '2022-09-10'
+let eDate = '2022-09-25'
+let weekMode = 'Lunes a Viernes'
+onlyValidDates(iDate, eDate, weekMode)
+
+//Lunes a Domingo

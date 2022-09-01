@@ -20,7 +20,9 @@ body{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    margin-bottom: 10px;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #e5e5e5;
 }
 
 .big-year{
@@ -49,7 +51,7 @@ body{
 }
 
 .months *{
-    font-size: 11px;
+    font-size: 13px;
     margin: 0 3px;
     padding: 3px;
     border-radius: 3px;
@@ -86,4 +88,10 @@ body{
 .noavailable-day{
     pointer-events: none;   
     color: #ccc;
+}
+
+.selected{
+    background-color: #e5e5e5;
+    font-weight: 700;
+    padding: 3px;
 }
